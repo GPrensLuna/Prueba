@@ -24,7 +24,7 @@ const options = {
 const swaggerSpec = swaggerJSDoc(options);
 
 const setupSwagger = (server: Application) => {
-  server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  server.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
 export default setupSwagger;

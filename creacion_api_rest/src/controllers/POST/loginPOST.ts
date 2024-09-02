@@ -1,24 +1,100 @@
-/* import { type Request, type Response } from "express";
+import { type Request, type Response } from "express";//* typos de datos de express
+import * as validator from "validator"; // * valida los datos
+import { db } from "../../prisma";//* conexión a la base de datos
+import bcrypt from "bcryptjs"; //* para encriptar la password
 
-export const loginPOST = (req: Request, res: Response) => {
-  // Implementación de la lógica de login
-  res.status(200).json({ message: "Login exitoso" });
-}; */
+interface User {
+  email: string;
+  password: string;
+}
 
-import { Request, Response } from "express";
+export const loginPOST = async (req: Request, res: Response) => {
+  try {
+    const { email, password }: User = req.body;
 
-// Simulación de usuarios en memoria para pruebas
-const users: Array<{ username: string; password: string }> = [];
+    //? Validar el formato del email
+ 
 
-export const loginPOST = (req: Request, res: Response) => {
-  const { username, password } = req.body;
-  const user = users.find(
-    (u) => u.username === username && u.password === password
-  );
+    //? Buscar al usuario en la base de datos
+  
 
-  if (user) {
-    res.status(200).json({ message: "Login successful" });
-  } else {
-    res.status(401).json({ message: "Invalid credentials" });
+    //? Si el usuario no se encuentra, retornar 404
+ 
+
+    //? Verificar que la contraseña coincida
+
+    //? Si la contraseña no coincide, retornar 401
+  
+
+    //? Respuesta exitosa
+
+  } catch (error) {
+    //? Manejar errores del servidor
   }
 };
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Login a user
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: The user's email address
+ *                 example: "john.doe@example.com"
+ *               password:
+ *                 type: string
+ *                 description: The user's password
+ *                 example: "password123"
+ *             required:
+ *               - email
+ *               - password
+ *     responses:
+ *       200:
+ *         description: Successfully logged in
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Successfully logged in"
+ *       400:
+ *         description: Bad request, invalid email format, user not found, or invalid password
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Invalid email format"
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "User not found"
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error"
+ */

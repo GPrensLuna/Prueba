@@ -15,3 +15,5 @@ datasource db {
 
 
 //? genera el modelo del regist tiene id - name - email - password
+//? el email tiene que ser unico
+

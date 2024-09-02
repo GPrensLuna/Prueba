@@ -1,8 +1,11 @@
 import { Router } from "express";
-import { saludoGet } from "../controllers/GET/Saludo.Get";
+import * as routers from "../controllers";
 
 export const router = Router();
 
-router.get("/", saludoGet);
+router.get("/", routers.saludoGet);
 
 //? Crea la ruta del Register y del login
+router.post("/Login",routers.loginPOST );
+router.post("/Register",routers.registerPOST );
+
