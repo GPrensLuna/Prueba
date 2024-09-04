@@ -58,7 +58,7 @@ describe("Authentication Endpoints", () => {
     expect(response.body.message).toBe("Email already in use");
   });
 
-  it("debería fallar el registro si la contraseña es débil", async () => {
+  it("debería fallar el registro si la contraseña es débil debe tener mas de 6 caracteres", async () => {
     const response = await request(app).post("/auth/register").send({
       name: "test",
       email: "test2@test.com",

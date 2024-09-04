@@ -27,7 +27,6 @@ export const loginPOST = async (req: Request, res: Response) => {
   
 
     //? Respuesta exitosa
-
   } catch (error) {
     //? Manejar errores del servidor
   }
@@ -76,7 +75,7 @@ export const loginPOST = async (req: Request, res: Response) => {
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "Invalid email format"
+ *                   example: "Invalid email or password  format"
  *       404:
  *         description: User not found
  *         content:

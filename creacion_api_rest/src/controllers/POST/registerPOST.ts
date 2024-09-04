@@ -18,26 +18,27 @@ export const registerPOST = async (req: Request, res: Response) => {
 
     //? Validar que todos los campos requeridos están presentes
 
+    //? Validar el formato del email
+
+    //? Verificar si ya existe un usuario con el mismo email en la base de datos
 
     //? Verificar si ya existe un usuario con el mismo email en la base de datos
 
     //? Si el email ya está en uso, retornar un error
 
-    //? Validar el formato del email
-
     //? Validar la contraseña (ejemplo simple: longitud mínima de 6 caracteres)
-
 
     //? Encriptar la contraseña antes de almacenarla en la base de datos
 
     //? Crear un nuevo usuario en la base de datos
-;
+
     //? Almacenar la contraseña encriptada
 
     //? Responder con éxito si el usuario fue creado correctamente
 
   } catch (error) {
     //? Manejar errores inesperados y responder con un mensaje genérico
+  
   }
 };
 /**

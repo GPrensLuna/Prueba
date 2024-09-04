@@ -4,6 +4,8 @@
   "description": "Prueba para crear una auth",
   "main": "main.ts",
   "scripts": {
+      "mig": "prisma migrate",
+     "gen": "prisma generate",
     "dev": "nodemon main.ts",
     "test": "vitest",
     "coverage": "vitest run --coverage"

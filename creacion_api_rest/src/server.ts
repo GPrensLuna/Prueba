@@ -1,5 +1,6 @@
 // ? importa json y cors
 import express, { Application, json } from "express";
+import cors from "cors";
 //?
 // ! No modificar este contenido
 import { router } from "./router/router";
@@ -13,11 +14,12 @@ export const server: Application = express();
 
 //? json
 server.use(json());
+server.use(cors());
 //?
 
 // ! No modificar este contenido
 //* Configuración de Swagger UI
-setupSwagger(server);
 server.use("/api", router);
+setupSwagger(server);
 
 // !
